@@ -10,11 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @wiki_post.each do |post| %>
+    <% @wiki_posts.each do |post| %>
       <tr>
         <td><%= link_to post.title, wiki_post_path(post) %></td>
-        <td><%= post.created_at %></td>
-        <td><%= post.updated_at %></td>
+        <td><%= post.created_at.strftime("%m-%d-%Y") %></td>
+        <td><%= post.updated_at.strftime("%m-%d-%Y") %></td>
       </tr>
     <% end %>
   </tbody>
