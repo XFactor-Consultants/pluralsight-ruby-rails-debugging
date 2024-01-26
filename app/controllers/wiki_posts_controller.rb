@@ -1,15 +1,18 @@
 # frozen_string_literal: true
 
 class WikiPostsController < ApplicationController
+  include LoggingModule
   before_action :set_wiki_post, only: %i[show edit update destroy]
 
   # GET /wiki_posts or /wiki_posts.json
   def index
     @wiki_posts = WikiPost.all
+    log_debug("WikiPosts Loaded - count: #{@wiki_posts.count}")
   end
 
   # GET /wiki_posts/1 or /wiki_posts/1.json
   def show
+    log_info("WikiPost viewed: #{@wiki_post.title}")
   end
 
   def example; end
@@ -65,6 +68,9 @@ class WikiPostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_wiki_post
     @wiki_post = WikiPost.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    log_error("WikiPost not found - ID: #{params[:id]}")
+    redirect_to wiki_posts_path, alert: 'WikiPost not found.'
   end
 
   # Only allow a list of trusted parameters through.

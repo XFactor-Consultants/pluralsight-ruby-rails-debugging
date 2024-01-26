@@ -4,7 +4,6 @@ class WikiPost < ApplicationRecord
   has_one_attached :image
   has_one :wiki_post_record, dependent: :destroy
   after_save :create_wiki_post_record
-  after_find :create_wiki_post_record
 
   scope :contributors, -> { pluck(:author).uniq }
 
