@@ -11,13 +11,13 @@ class WikiPost < ApplicationRecord
 
   def create_wiki_post_record
     data = {
-      id: self.id,
-      created_at: self.created_at,
-      updated_at: self.updated_at,
-      title: self.title,
-      description: self.description,
-      author: self.author
+      id:,
+      created_at:,
+      updated_at:,
+      title:,
+      description:,
+      author:
     }
-    build_wiki_post_record(data: data).save!
+    build_wiki_post_record(data:).save!
   end
 end
