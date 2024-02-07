@@ -5,7 +5,7 @@ class WikiPost < ApplicationRecord
   has_one :wiki_post_record, dependent: :destroy
   after_save :create_wiki_post_record
 
-  validates_format_of :title, with: /\A[a-zA-Z0-9\s]+\z/
+  validates_format_of :title, with: /\A[a-zA-Z0-9\s.,!?:;'-]+\z/
 
   scope :contributors, -> { pluck(:author).uniq }
 

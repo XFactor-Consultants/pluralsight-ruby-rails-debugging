@@ -2,7 +2,7 @@
 
 class WikiPostsController < ApplicationController
   include LoggingModule
-  before_action :set_wiki_post, only: %i[show edit update destroy]
+  before_action :set_wiki_post, only: %i[edit update destroy]
 
   # GET /wiki_posts or /wiki_posts.json
   def index
