@@ -16,6 +16,9 @@ WikiPost.create!(title: 'Do Spiders Dream?', description: 'You dream about them,
                  author: 'Phil Brazil')
 WikiPost.create!(title: 'Penguin Fantasy', description: 'Penguins, penguins everywhere.',
                  author: 'Conlon Nancarrow')
+# WikiPost.create!(title: 'Goofy Geckos', description: 'Penguins, penguins everywhere.',
+#                  author: nil)
+
 # 1000.times do
 #   WikiPost.create!(
 #     title: Faker::Lorem.sentence(word_count: 3),
@@ -23,3 +26,4 @@ WikiPost.create!(title: 'Penguin Fantasy', description: 'Penguins, penguins ever
 #     author: Faker::Name.name
 #   )
 # end
+
