@@ -4,7 +4,7 @@ class WikiPostSerializer
   def self.serialize(data)
     final = {}
 
-    final['records'] << data.count
+    final['records'] = data.count
     final['results'] = data
 
     final.to_json
