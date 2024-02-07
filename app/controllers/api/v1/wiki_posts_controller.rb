@@ -6,10 +6,9 @@ module Api
       include LoggingModule
       def index
         data = {}
-        WikiPost.all.each do |post|
+        WikiPost.includes(:wiki_post_record).each do |post|
           data[post.id] = post.wiki_post_record.data
         end
-
         final = WikiPostSerializer.serialize(data)
         render json: final
       rescue StandardError => e
